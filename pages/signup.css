@@ -1,0 +1,86 @@
+@font-face {
+    font-family: 'SpoqaHanSansNeo-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  form {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'SpoqaHanSansNeo-Regular';
+  }
+  
+  input[readonly] {
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+  }
+  
+  .input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .input-group input {
+    width: 70%;
+  }
+  
+  .input-group button {
+    width: 25%;
+    padding: 10px;
+    background-color: #e9302d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #c12c2a;
+  }
+  
+  .message {
+    margin: 5px 0 10px 0;
+    font-size: 0.9em;
+    color: red;
+  }
+  
+  .message.success {
+    color: green;
+  }
+  .address{
+    border: 1px solid black;
+    border-radius: 5px;
+  }
+  
+  .submit {
+    width: 100%;
+    padding: 10px;
+    background-color: #e9302d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: color 0.3s ease;
+  }

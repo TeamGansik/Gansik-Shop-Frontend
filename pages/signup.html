@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 폼</title>
+    <script src="https://ssl.daumcdn.net/dmaps/map_js_init/postcode.v2.js"></script>
+    <link rel="stylesheet" href="signup.css">
+    <script src="signup.js"></script> <!-- JS 파일 분리 -->
+</head>
+
+<body>
+    <form onsubmit="return submitForm(event)">
+        <h2>회원가입</h2>
+
+        <label for="name">이름</label>
+        <input type="text" id="name" name="name" placeholder="이름 입력" required oninput="validateName()">
+        <div id="nameMessage" class="message"></div> <!-- 이름 경고 문구 출력할 div 추가 -->
+
+        <label for="email">이메일 (ID)</label>
+        <div class="input-group">
+            <input type="email" id="email" name="email" placeholder="이메일 입력" required oninput="validateEmail()">
+            <button type="button" onclick="sendEmailVerification()">인증하기</button>
+        </div>
+        <div id="emailMessage" class="message"></div>
+
+        <div id="emailVerificationContainer" style="display: none;">
+            <label for="emailCode">이메일 인증번호</label>
+            <div class="input-group">
+                <input type="text" id="emailCode" name="emailCode" placeholder="인증번호를 입력하세요">
+                <button type="button" onclick="verifyEmailCode()">확인</button>
+            </div>
+            <div id="emailCodeMessage" class="message"></div>
+            <div id="timer" class="message"></div> <!-- 타이머를 출력할 div 추가 -->
+        </div>
+
+        <label for="password">비밀번호</label>
+        <input type="password" placeholder="비밀번호 입력" id="password" name="password" required oninput="checkPasswordMatch()">
+        <div id="passwordValidationMessage" class="message"></div> <!-- 비밀번호 유효성 검증 메시지 출력 div 추가 -->
+
+        <label for="confirmPassword">비밀번호 확인</label>
+        <input type="password" id="confirmPassword" name="confirmPassword" placeholder="비밀번호 확인" required oninput="checkPasswordMatch()">
+        <div id="passwordMessage" class="message"></div> <!-- 비밀번호 일치 메시지 출력 div 추가 -->
+
+        <label for="phone">전화번호</label>
+        <input type="tel" id="phone" name="phone" required placeholder="- 빼고 입력하세요">
+
+        <label for="postcode">우편번호</label>
+        <div class="input-group">
+            <input class="address" type="text" id="postcode" name="postcode" placeholder="우편번호를 입력하세요" readonly required>
+            <button type="button" onclick="execDaumPostcode()">주소 찾기</button>
+        </div>
+
+        <input class="address" type="text" id="roadAddress" name="roadAddress" placeholder="도로명 주소를 입력하세요" readonly required>
+
+        <label for="detailAddress">상세 주소</label>
+        <input type="text" id="detailAddress" name="detailAddress" placeholder="상세 주소 입력" required>
+
+        <button class="submit" type="submit">가입하기</button>
+    </form>
+</body>
+
+</html>

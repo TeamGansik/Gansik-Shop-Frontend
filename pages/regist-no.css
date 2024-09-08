@@ -1,0 +1,207 @@
+@font-face {
+    font-family: 'SpoqaHanSansNeo-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: 'BMHANNAPro';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+  /* 폰트 */
+  
+  
+  *{
+    margin: 0;
+  }
+  
+  body{
+    background-color:  #F3F5F7;
+  }
+  
+  section{
+    width: 1080px;
+    display: flex;
+    margin: 0 auto;
+    padding: 0;
+    justify-content: space-between;
+    font-family: 'SpoqaHanSansNeo-Regular';
+  }
+  
+  .list{
+    width: 182px;
+    margin: 64px 0 0 20px;
+  }
+  
+  .myeat{
+    height: 44px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .oneline {
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(12px);
+  }
+  
+  .list img {
+    height: 60px;
+    width: 60px;
+    transform: translateY(-10px);
+  }
+  
+  .name{
+    padding-left: 5px;
+    height: 52px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    background-image: linear-gradient(transparent 10%, #fbc237 20%);
+    background-repeat: no-repeat;
+    background-size: 36% 0.5em;
+    background-position: 13% 69%;
+  }
+  
+  .detail-list{
+    padding: 9px 16px 15px 0px;
+    font-size: 14px;
+    color: rgb(126, 128, 130);
+    font-weight: 700;
+    height: 21px;
+
+  }
+  
+  .detail-select{
+    padding: 14px 16px 15px;
+    font-weight: 700;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+  }
+  
+  .order{
+    text-decoration: underline;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  
+  .detail-noselect{
+    padding: 14px 16px 15px;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    align-items: center;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px -1px inset;
+    cursor: pointer;
+  }
+  
+  .detail div:hover {
+    background-color: #F3F5F7;
+  }
+  
+  .info{
+    width: 824px;
+    margin: 64px 10px 0 0;
+    display:flex;
+    flex-direction:column;
+  }
+  .registor{
+    display:flex;
+    justify-content:space-between;
+}
+  .registor button{
+    color: #e9302d; 
+  border: 1px solid #e9302d; 
+  background-color: white;
+  font-size: 16px;
+  font-weight: bold;
+  height: 30px;
+  width: 80px;
+  margin-right: 4px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.registor button:hover{
+    background-color: #f8f2f2;
+    filter: none !important;
+}
+  
+  .content-name{
+    color: rgb(24, 26, 28);
+    height: 44px;
+    letter-spacing: -0.4px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 28px;
+    display: flex;
+    align-items: center;
+  }
+  
+  hr{
+    border-color: rgb(231, 231, 231, 0.3);
+    background: rgb(231, 231, 231, 0.3);
+    height: 1px;
+  }
+  .content{
+    height: 430px;
+    background-color: white;
+    margin: 20px 0 100px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'BMHANNAPro';
+    font-weight: normal;
+    flex-direction:column;
+  }
+  .content span {
+    display: inline-block;
+    font-size: 80px;
+    animation: bounce .45s ease infinite alternate;
+    margin-bottom:15px;
+  }
+  
+  @keyframes bounce {
+    0% {
+      transform: translateY(0); 
+      text-shadow: 0 5px 5px rgba(0, 0, 0, 0.3); /* 텍스트 바로 아래에 그림자 */
+    }
+    100% {
+      transform: translateY(-20px); 
+      text-shadow: 0 10px 10px rgba(0, 0, 0, 0.4); /* 위로 이동 시 더 큰 그림자 */
+    }
+  } 
+  .introduce{
+    font-size:20px;
+    margin-bottom:15px;
+  }
+
+  .content button{
+    color: white; 
+    background-color: #e9302d; 
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    height: 56px;
+    width: 148px;
+    margin-right: 4px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover{
+    filter: brightness(150%);
+  }
+  
