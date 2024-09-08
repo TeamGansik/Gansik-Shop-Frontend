@@ -4,6 +4,14 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'BMHANNAPro';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_seven@1.0/BMHANNAPro.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  }
+/* 폰트 */
+
 
 /* 폰트 불러오기 */
 
@@ -75,6 +83,43 @@ main {
   width: 1080px;
   margin: 0 auto;
   position: relative;
+}
+
+.no-results {
+  height: 430px;
+  background-color: white;
+  margin: 20px 0 100px 0;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  font-family: 'BMHANNAPro';
+  font-weight: normal;
+  flex-direction:column;
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.no-results span {
+  display: inline-block;
+  font-size: 80px;
+  animation: bounce .45s ease infinite alternate;
+}
+
+.no-results .introduce {
+  font-size:20px;
+  margin-bottom:15px;
+}
+
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0); 
+    text-shadow: 0 5px 5px rgba(0, 0, 0, 0.3); /* 텍스트 바로 아래에 그림자 */
+  }
+  100% {
+    transform: translateY(-20px); 
+    text-shadow: 0 10px 10px rgba(0, 0, 0, 0.4); /* 위로 이동 시 더 큰 그림자 */
+  }
 }
 
 .product-list {

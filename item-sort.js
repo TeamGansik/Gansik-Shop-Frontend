@@ -1,14 +1,34 @@
 document.addEventListener('DOMContentLoaded', async () => {
+    // 동적 HTML 로딩 함수
+    async function loadHTML(url, elementId) {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const data = await response.text();
+        document.getElementById(elementId).innerHTML = data;
+    }
+
+    // header.html을 동적으로 로드
+    await loadHTML('header.html', 'header-placeholder');
+
+    // 동적으로 로드된 후에 header.js 추가
+    const script = document.createElement('script');
+    script.src = 'header.js';  // 이미 존재하는 header.js를 다시 로드하여 이벤트 리스너 등록
+    document.body.appendChild(script);
+
     const urlParams = new URLSearchParams(window.location.search);
+    console.log(urlParams);
     const keyword = urlParams.get('keyword');
     const category = urlParams.get('category');
+    console.log('Keyword:', keyword);
 
     loadItems(0, 20, keyword, category);
 
     async function loadItems(page, size, keyword, category) {
         try {
             let apiUrl = `http://localhost:8080/api/items?page=${page}&size=${size}`;
-            
+
             if (keyword) {
                 apiUrl += `&keyword=${encodeURIComponent(keyword)}`;
             } else if (category) {
@@ -38,19 +58,25 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
 
             const moveBar = document.querySelector('.move-bar');
+            console.log(data);
 
             // 검색 결과가 없을 때
-            if (data._embedded.itemSummaryDtoList.length === 0) {
-                productList.innerHTML = `
-                    <div class="no-results">
-                        <span>텅</span>
-                        <div class="introduce">검색 결과가 없네요...</div>
-                    </div>
-                `;
-                // 페이지 네비게이션을 표시하지 않음
-                moveBar.style.display = 'none';
-                return;
+            if (productList) { // productList가 null이 아닐 때만 동작
+                if (!data._embedded) {
+                    productList.style.gridTemplateColumns = 'none';
+                    productList.innerHTML = `
+                        <div class="no-results">
+                            <span>텅</span>
+                            <div class="introduce">검색 결과가 없네요...</div>
+                        </div>`;
+                    // 페이지 네비게이션을 표시하지 않음
+                    moveBar.style.display = 'none';
+                    return;
+                }
+            } else {
+                console.error('productList 요소를 찾을 수 없습니다.');
             }
+
 
             // 검색 결과가 있을 때
             data._embedded.itemSummaryDtoList.forEach(item => {
