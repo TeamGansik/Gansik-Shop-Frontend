@@ -17,6 +17,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     script.src = 'header.js';  // 이미 존재하는 header.js를 다시 로드하여 이벤트 리스너 등록
     document.body.appendChild(script);
 
+    // 로그인 상태를 확인하고, 마이페이지와 장바구니 접근을 제어하는 함수
+    await checkLoginAndRestrictAccess();
+
     const urlParams = new URLSearchParams(window.location.search);
     console.log(urlParams);
     const keyword = urlParams.get('keyword');
@@ -77,7 +80,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 console.error('productList 요소를 찾을 수 없습니다.');
             }
 
-
             // 검색 결과가 있을 때
             data._embedded.itemSummaryDtoList.forEach(item => {
                 const productItem = document.createElement('a');
@@ -119,6 +121,60 @@ document.addEventListener('DOMContentLoaded', async () => {
                 loadItems(i, 20, keyword, category);
             });
             moveLink.appendChild(pageLink);
+        }
+    }
+
+    // 로그인 상태를 확인하고 마이페이지 및 장바구니 접근 제어
+    async function checkLoginAndRestrictAccess() {
+        const accessToken = localStorage.getItem('accessToken');
+        const refreshToken = localStorage.getItem('refreshToken');
+
+        if (accessToken && refreshToken) {
+            try {
+                const response = await fetch('http://localhost:8080/api/members', {
+                    method: 'GET',
+                    headers: {
+                        'Authorization': accessToken,
+                        'Content-Type': 'application/json',
+                    },
+                });
+
+                if (response.ok) {
+                    const userData = await response.json();
+                    console.log('User Data:', userData);
+                    // 로그인이 되어 있으므로 별도의 제어가 필요 없음
+                } else {
+                    console.error('사용자 정보를 가져오는데 실패했습니다.');
+                    restrictAccess();
+                }
+            } catch (error) {
+                console.error('사용자 정보를 가져오는 중 오류 발생:', error);
+                restrictAccess();
+            }
+        } else {
+            restrictAccess();
+        }
+    }
+
+    // 마이페이지와 장바구니 접근 제한 함수
+    function restrictAccess() {
+        const myProfileLink = document.querySelector('.myPage');
+        const cartLink = document.querySelector('.shoppingCart');
+
+        if (myProfileLink) {
+            myProfileLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                alert('로그인이 필요한 서비스입니다.');
+                location.href = '/pages/login.html'; // 로그인 페이지로 리디렉션
+            });
+        }
+
+        if (cartLink) {
+            cartLink.addEventListener('click', (event) => {
+                event.preventDefault();
+                alert('로그인이 필요한 서비스입니다.');
+                location.href = '/pages/login.html'; // 로그인 페이지로 리디렉션
+            });
         }
     }
 });

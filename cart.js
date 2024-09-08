@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       itemContainer.innerHTML = `
         <div class="no-results">
           <span>텅</span>
-          <div class="introduce">검색 결과가 없네요...</div>
+          <div class="introduce">장바구니 내역이 없네요...</div>
         </div>
       `;
       return; // 더 이상 진행하지 않음
