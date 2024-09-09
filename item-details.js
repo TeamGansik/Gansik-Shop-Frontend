@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             // 상품 상세 정보를 HTML에 반영
             document.querySelector('.category2').textContent = '카테고리: ' + item.category;
             document.querySelector('.name h1').textContent = item.name;
-            document.querySelector('.date').textContent = `최종 수정 시간: ${new Date(item.modifiedAt).toLocaleDateString()} ${formatTime(new Date(item.modifiedAt))}`;
+            document.querySelector('.date').textContent = `상품 최종 수정 시간: ${new Date(item.modifiedAt).toLocaleDateString()} ${formatTime(new Date(item.modifiedAt))}`;
             document.querySelector('#won').textContent = item.price.toLocaleString();
             document.querySelector('#money').textContent = item.price.toLocaleString();
 
@@ -140,7 +140,8 @@ document.addEventListener("DOMContentLoaded", async function () {
                         alert('구매가 완료되었습니다.');
                         // 구매 완료 후 페이지 이동 등 추가 처리
                     } else {
-                        alert('구매에 실패했습니다.');
+                        const errorText = await orderResponse.text(); // 응답 본문을 텍스트로 추출
+                        alert(`구매에 실패했습니다: ${errorText}`);
                     }
                 } catch (error) {
                     console.error('구매 처리 중 오류가 발생했습니다:', error);

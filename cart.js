@@ -65,7 +65,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (!response.ok) {
       const errorMessage = await response.text();
-      alert(errorMessage || '구매에 실패했습니다.');
+      alert('구매에 실패했습니다. ' + errorMessage);
       throw new Error('구매에 실패했습니다.');
     }
 
@@ -103,6 +103,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (items.length === 0) {
       // 장바구니가 비어있을 때 메시지 표시
+      const itemSelector = document.querySelector('.choose-all');
+      itemSelector.innerHTML = '';
+      itemSelector.style.backgroundColor = 'white';
       itemContainer.innerHTML = `
         <div class="no-results">
           <span>텅</span>
@@ -258,3 +261,4 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.error('장바구니 항목을 불러오는 중 오류가 발생했습니다.', error);
   }
 });
+

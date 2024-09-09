@@ -195,6 +195,19 @@ button:hover{
   filter: brightness(150%);
 }
 
+.home button{
+  color: white; 
+  background-color: #e9302d; 
+  border: none;
+  font-size: 16px;
+  font-weight: bold;
+  height: 30px;
+  width: 150px;
+  margin-right: 4px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .collect {
   position: relative; /* relative로 설정하여 부모 요소 내에서의 위치를 조정 */
   margin-bottom: 10px; /* collect 요소들 사이에 간격 추가 */

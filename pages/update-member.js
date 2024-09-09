@@ -212,6 +212,8 @@ function verifyEmailCode() {
                 isEmailVerified = true;
                 document.getElementById("emailCode").setAttribute("readonly", true);
                 document.querySelector("#emailVerificationContainer button").setAttribute("disabled", true);
+                document.querySelector("#emailVerificationContainer button").style.backgroundColor = "#ccc";
+                document.querySelector("#emailVerificationContainer button").style.cursor = "not-allowed";
             } else {
                 emailCodeMessage.textContent = "인증번호가 일치하지 않습니다. 다시 확인해주세요.";
             }
@@ -326,6 +328,9 @@ function submitForm(event) {
             localStorage.removeItem('refreshToken');
             alert("회원수정이 완료되었습니다. 재로그인 해주십시오.");
             window.location.href = 'login.html'; // 회원가입 후 로그인 페이지로 이동
+        } else if(response.status == 400) {
+            console.log("회원수정 실패:", response.body);
+            alert("수정된 회원 정보가 없습니다.");
         } else {
             console.log("회원수정 실패:", response.status);
             alert("회원수정에 실패했습니다. 다시 시도해주세요.");

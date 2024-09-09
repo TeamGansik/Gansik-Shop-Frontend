@@ -264,7 +264,7 @@
 .product-item img {
     width: 80px;  /* 이미지 너비 */
     height: 80px; /* 이미지 높이 */
-    object-fit: cover; /* 이미지가 박스 크기에 맞춰 잘리도록 설정 */
+    object-fit: contain; /* 이미지가 박스 크기에 맞춰 잘리도록 설정 */
     border-radius: 10px; /* 둥근 모서리 */
     margin-bottom: 10px; /* 이미지와 텍스트 간의 간격 */
 }

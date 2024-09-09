@@ -40,11 +40,14 @@ main {
   display:flex;
   justify-content: space-between;
 }
+/* 이미지 스타일 */
 img {
   width: 464px; /* 고정된 너비 */
   height: 464px; /* 고정된 높이 */
-  object-fit: cover; /* 이미지가 잘리지 않도록 유지 */
+  object-fit: contain; /* 이미지가 잘리지 않도록 유지 */
   margin: 40px 80px 40px 0;
+  display: block; /* 이미지 주위의 공간이 남지 않도록 설정 */
+  position: relative; /* 이미지를 기준으로 버튼을 배치하기 위해 relative로 설정 */
 }
 
 /* 슬라이드 버튼 스타일 */
@@ -63,16 +66,17 @@ img {
 }
 
 .slider-btn.prev {
-  left: 10px; /* 왼쪽 끝에서 살짝 떨어진 위치 */
+  left: -60px; /* 이미지 바깥쪽으로 이동 */
 }
 
 .slider-btn.next {
-  right: 10px; /* 오른쪽 끝에서 살짝 떨어진 위치 */
+  right: -60px; /* 이미지 바깥쪽으로 이동 */
 }
 
 .slider-btn:hover {
   background-color: rgba(0, 0, 0, 0.8); /* 호버 시 조금 더 어두운 배경 */
 }
+
 
 /* 이미지 슬라이드 컨테이너 */
 .product-photo {

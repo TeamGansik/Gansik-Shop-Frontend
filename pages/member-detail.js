@@ -25,7 +25,6 @@ async function loadUserData() {
         if (!response.ok) throw new Error('Failed to fetch user data');
 
         const userData = await response.json();
-        console.log('User Data:', userData);
 
         const userNameElement = document.querySelector('.introduce .name strong');
         if (userNameElement) {

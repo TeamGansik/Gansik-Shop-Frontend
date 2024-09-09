@@ -140,6 +140,8 @@ function verifyEmailCode() {
                 isEmailVerified = true;
                 document.getElementById("emailCode").setAttribute("readonly", true);
                 document.querySelector("#emailVerificationContainer button").setAttribute("disabled", true);
+                document.querySelector("#emailVerificationContainer button").style.backgroundColor = "#ccc";
+                document.querySelector("#emailVerificationContainer button").style.cursor = "not-allowed";
             } else {
                 emailCodeMessage.textContent = "인증번호가 일치하지 않습니다. 다시 확인해주세요.";
             }

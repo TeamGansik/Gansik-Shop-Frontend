@@ -27,9 +27,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const accessToken = localStorage.getItem('accessToken');
     const refreshToken = localStorage.getItem('refreshToken');
 
-    console.log('accessToken:', accessToken);
-    console.log('refreshToken:', refreshToken);
-
     if (accessToken && refreshToken) {
         // 로그인 상태일 때 사용자 정보 가져오기
         try {
@@ -43,7 +40,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             if (response.ok) {
                 const userData = await response.json();
-                console.log('User Data:', userData);
 
                 // 로그인 상태에서 헤더 변경
                 rightMenu.innerHTML = `
@@ -94,6 +90,7 @@ async function handleLogout(event) {
             localStorage.removeItem('refreshToken');
             alert('로그아웃 되었습니다.');
             location.reload(); // 페이지 새로고침
+            window.location.href = 'main.html'
         } else {
             const errorMessage = await response.text();
             alert('로그아웃 실패: ' + errorMessage);

@@ -21,10 +21,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     await checkLoginAndRestrictAccess();
 
     const urlParams = new URLSearchParams(window.location.search);
-    console.log(urlParams);
     const keyword = urlParams.get('keyword');
     const category = urlParams.get('category');
-    console.log('Keyword:', keyword);
 
     loadItems(0, 20, keyword, category);
 
@@ -61,7 +59,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
 
             const moveBar = document.querySelector('.move-bar');
-            console.log(data);
 
             // 검색 결과가 없을 때
             if (productList) { // productList가 null이 아닐 때만 동작
@@ -141,7 +138,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 if (response.ok) {
                     const userData = await response.json();
-                    console.log('User Data:', userData);
                     // 로그인이 되어 있으므로 별도의 제어가 필요 없음
                 } else {
                     console.error('사용자 정보를 가져오는데 실패했습니다.');
