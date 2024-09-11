@@ -65,11 +65,7 @@ async function loadUserData() {
 
         // 사용자 등급 체크
         if (userRole === "CUSTOMER") {
-            // 경고창을 띄우고 제품 등록 페이지로 이동하지 않음
-            document.getElementById('item').onclick = function (event) {
-                event.preventDefault();  // 기본 동작 차단
-                alert("관리자만 상품 등록이 가능합니다.");
-            };
+            document.getElementById('item').style.display = 'none';
         }
 
     } catch (error) {
