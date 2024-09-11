@@ -1,0 +1,179 @@
+@font-face {
+    font-family: 'SpoqaHanSansNeo-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  .cursor {
+    position: absolute;
+    pointer-events: none;    
+  }
+  
+  .cursor img {
+    width: 75px; 
+    height: 75px;
+  }
+  /* 기본 폰트 & 커서 적용 */
+  
+  *{
+    margin: 0;
+  }
+  
+  nav{
+    width: 1080px;
+  }
+  
+  img{
+    margin-top: 15px;
+    border-radius: 10px;
+  }
+  
+  
+  body {
+    margin: 0 auto;
+    padding: 0;
+    align-items: center;
+    box-sizing: border-box;
+    justify-content: center; /* 페이지 내용을 가운데 정렬 */
+  }
+  
+  a{
+    text-decoration: none;
+  }
+  
+  .total{
+    width: 1080px;
+    align-items: center;
+    color: rgb(24, 26, 28);
+    background-color: rgba(246, 246, 246, 0.7);
+    display: flex;
+    font-family: "Spoqa Han Sans Neo", sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+    height: 40px;
+    line-height: 16px;
+    padding: 4px 0 4px 0;
+    margin: 10px 0;
+  }
+  
+  .name {
+    font-family: "Spoqa Han Sans Neo", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    width: 1080px;
+    margin: 0 auto;
+    margin-top: 32px;
+    margin-bottom: 20px;
+    position: relative;
+    text-align: left;
+  }
+  
+  .search {
+    width: 1080px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  
+  main {
+    width: 1080px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .product-list {
+    display: grid;
+    margin: 0 auto;
+    grid-template-columns: repeat(5, 211px); /* 각 아이템의 너비를 200px로 설정 */
+    gap: 5px; /* 아이템 간의 간격 */
+  }
+  
+  .product-item {
+    width: 215px;
+    text-align: center;
+    display: block;
+    border-radius: 10px;
+    height: 279px;
+    margin-bottom: 5px;
+  }
+  
+  .product-total{
+    width: 216px;
+    margin: 0;
+  }
+  .busket{
+    background-color: rgb(255, 255, 255);
+    border-width: 0;
+  
+  }
+  
+  .product-name{
+    color: rgb(24, 26, 28);
+    font-family: "Spoqa Han Sans Neo", sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    cursor: pointer;
+    overflow: hidden;
+    /* overflow-wrap: break-word; 한 줄에서 넘칠 경우에 다음줄로 넘어가게 하는 기능이 있는지?*/ 
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 150px;
+    margin: 0 auto;
+  }
+  
+  .product-price{
+    color: rgb(24, 26, 28);
+    font-family: "Spoqa Han Sans Neo", sans-serif;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+    cursor: pointer;
+    margin: 5px 0;
+  }
+  
+  .move-bar {
+    font-family: "Spoqa Han Sans Neo", sans-serif;
+    font-weight: normal;
+    font-size: 14px;
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    width: 1080px;
+    margin-bottom: 20px;
+  }
+  
+  .move-link {
+    display: flex;
+    gap: 10px; /* 숫자 간의 간격을 조절하려면 이 값을 변경하세요 */
+  }
+  
+  .mark {
+    text-decoration: none;
+    color: rgb(233, 48, 45); /* 링크 색상을 조정하려면 이 값을 변경하세요 */
+    font-size: 17px; /* 숫자의 크기를 조절하려면 이 값을 변경하세요 */
+    padding: 5px 10px; /* 숫자 주변의 여백을 조절하려면 이 값을 변경하세요 */
+    background-color: rgb(255, 255, 255);
+    font-family: "Spoqa Han Sans Neo", sans-serif;
+    font-weight: 600;
+  }
+  
+  .no-mark {
+    text-decoration: none;
+    font-family: "Spoqa Han Sans Neo", sans-serif;
+    font-weight: 500;
+    color: black; /* 링크 색상을 조정하려면 이 값을 변경하세요 */
+    font-size: 17px; /* 숫자의 크기를 조절하려면 이 값을 변경하세요 */
+    padding: 5px 10px; /* 숫자 주변의 여백을 조절하려면 이 값을 변경하세요 */
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .move-bar a {
+    border-radius: 20px;
+  }
+  
+  
+  .move-bar a:hover {
+    background-color: #f1f1f1;
+  }
+  
